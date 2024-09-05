@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tom-project-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tom-project
+  template:
+    metadata:
+      labels:
+        app: tom-project
+    spec:
+      containers:
+      - name: tom-project-container
+        image: 980921710177.dkr.ecr.us-west-2.amazonaws.com/tom/project:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: MONGO_SERVICE_HOST
+          value: "mongodb.mongodb.svc.cluster.local"
+        - name: MONGO_DATABASE
+          value: "pacman"
+        - name: MY_MONGO_PORT
+          value: "27017"
