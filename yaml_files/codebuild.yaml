@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.x
+    commands:
+      - echo "Installing dependencies..."
+      - pip install awscli
+      - echo "Dependencies installed."
+
+  pre_build:
+    commands:
+      - echo "Cloning repository..."
+      - git clone https://github.com/tom2000il/pacman.git
+      - cd pacman
+      - echo "Repository cloned."
+
+  build:
+    commands:
+      - echo "Building project..."
+      - npm install
+      - echo "Build completed."
+
+  post_build:
+    commands:
+      - echo "Skipping tests as no test script is defined."
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
