@@ -13,8 +13,9 @@ phases:
     commands:
       - echo "Cloning repository..."
       - git clone https://github.com/tom2000il/pacman.git
-      - cd pacman
-      - echo "Repository cloned."
+      - echo "Navigating to source_code directory..."
+      - cd pacman/source_code  
+      - echo "Repository cloned and navigated to pacman/source_code."
 
   build:
     commands:
